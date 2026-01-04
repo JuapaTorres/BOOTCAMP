@@ -1,0 +1,12 @@
+# Archivos de sistema de Mac
+.DS_Store
+
+# Archivos de sistema de Windows
+Thumbs.db
+desktop.ini
+
+# Carpetas de dependencias (si llegas a usar Node.js o Python)
+node_modules/
+__pycache__/
+venv/
+.env
