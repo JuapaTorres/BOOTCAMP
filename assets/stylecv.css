@@ -1,0 +1,19 @@
+h1 {text-align: center;
+    color: crimson;
+    text-decoration: underline;
+}
+h2{
+    text-align: justify;
+    color: whitesmoke ;
+    background-color: chocolate;
+    padding: 10px
+}
+body{
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    font-family: "Roboto", sans-serif;
+}
+li{
+    text-align: justify;
+    color: black;
+}
+
