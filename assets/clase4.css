@@ -1,0 +1,22 @@
+
+
+
+
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: beige;
+  height: 100dvh;
+  width: 550px;
+}
+
+div {
+  background-color: rgb(191, 214, 138);
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 20px;
+}
