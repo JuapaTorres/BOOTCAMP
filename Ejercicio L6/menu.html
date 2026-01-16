@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet - Menú Principal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background-color: #f8f9fa; padding-top: 50px; }
+        .container { max-width: 450px; }
+        #msg-redireccion { min-height: 24px; color: #667eea; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container text-center border p-4 bg-white shadow-sm">
+        <h2 class="mb-4">Menú Principal</h2>
+        <div class="alert alert-info py-3">
+            <p class="mb-0">Saldo disponible:</p>
+            <h3 class="font-weight-bold">$4.000</h3>
+        </div>
+        <div class="d-grid gap-2">
+            <a href="deposit.html" class="btn btn-primary btn-block mb-2">Depositar</a>
+            <a href="sendmoney.html" class="btn btn-primary btn-block mb-2">Enviar Dinero</a>
+            <a href="transactions.html" class="btn btn-outline-secondary btn-block">Últimos Movimientos</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const saldoGuardado = localStorage.getItem('saldo') || "0";
+            $('#saldo-display').text('$' + parseFloat(saldoGuardado).toLocaleString('es-AR'));
+            $('.btn-nav').click(function(e) {
+                e.preventDefault();
+                
+                const urlDestino = $(this).attr('href');
+                const nombrePantalla = $(this).text();
+                $('#msg-redireccion').text(`Redirigiendo a "${nombrePantalla}"...`);
+                setTimeout(function() {
+                    window.location.href = urlDestino;
+                }, 1000); 
+            });
+        });
+    </script>
+</body>
+</html>

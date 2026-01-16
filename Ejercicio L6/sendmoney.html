@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet - Enviar Dinero</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background-color: #f8f9fa; padding-top: 50px; }
+        .container { max-width: 500px; }
+        .selected-contact { background-color: #e3f2fd !important; border: 1px solid #007bff; }
+        #btnEnviarFinal { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container border p-4 bg-white shadow-sm">
+        <h2 class="mb-4">Enviar Dinero</h2>
+        
+        <div class="input-group mb-4">
+            <input type="text" id="inputBuscar" class="form-control" placeholder="Buscar por nombre o alias...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="btnBuscar">Buscar</button>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-outline-success btn-block mb-4" data-toggle="modal" data-target="#modalContacto">
+            + Agregar nuevo contacto
+        </button>
+
+        <div id="confirmacion-envio"></div>
+
+        <h5>Agenda</h5>
+        <ul class="list-group mb-4" id="listaContactos">
+            <li class="list-group-item d-flex justify-content-between align-items-center contact-item" style="cursor: pointer;">
+                <span class="nombre-contacto">Juapa</span>
+                <span class="badge badge-primary badge-pill">RUT: 17.0...</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center contact-item" style="cursor: pointer;">
+                <span class="nombre-contacto">Mothz</span>
+                <span class="badge badge-primary badge-pill">RUT: 15.3...</span>
+            </li>
+        </ul>
+
+        <button id="btnEnviarFinal" class="btn btn-success btn-block mb-2">Enviar dinero a seleccionado</button>
+        
+        <a href="menu.html" class="btn btn-secondary btn-block">Volver al Menú Principal</a>
+    </div>
+
+    <div class="modal fade" id="modalContacto" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuevo Contacto</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="formNuevoContacto">
+                        <input type="text" id="nuevoNombre" class="form-control mb-2" placeholder="Nombre completo" required>
+                        <input type="text" id="nuevoRUT" class="form-control mb-2" placeholder="RUT" required>
+                        <input type="text" id="nuevoBanco" class="form-control" placeholder="Banco" required>
+                        <div id="errorModal" class="text-danger small mt-2"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelar">Cancelar</button>
+                    <button type="button" id="btnGuardarContacto" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#inputBuscar").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#listaContactos li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $(document).on('click', '.contact-item', function() {
+                $('.contact-item').removeClass('selected-contact');
+                $(this).addClass('selected-contact');
+                $('#btnEnviarFinal').fadeIn();
+            });
+
+            $('#btnGuardarContacto').click(function() {
+                const nombre = $('#nuevoNombre').val();
+                const cbu = $('#nuevoCBU').val();
+
+                if (nombre === "" || cbu === "") {
+                    $('#errorModal').text("Todos los campos son obligatorios.");
+                } else {
+                    $('#listaContactos').append(`
+                        <li class="list-group-item d-flex justify-content-between align-items-center contact-item" style="cursor: pointer;">
+                            <span class="nombre-contacto">${nombre}</span>
+                            <span class="badge badge-primary badge-pill">CBU: ${cbu.substring(0,5)}...</span>
+                        </li>
+                    `);
+                    $('#modalContacto').modal('hide');
+                    $('#formNuevoContacto')[0].reset();
+                    $('#errorModal').text("");
+                }
+            });
+
+            $('#btnEnviarFinal').click(function() {
+                const nombre = $('.selected-contact .nombre-contacto').text();
+                $('#confirmacion-envio').html(`
+                    <div class="alert alert-success mt-3 alert-dismissible fade show">
+                        ¡Envío realizado con éxito a <strong>${nombre}</strong>!
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
+                `);
+                $(this).fadeOut();
+                $('.contact-item').removeClass('selected-contact');
+            });
+        });
+    </script>
+</body>
+</html>

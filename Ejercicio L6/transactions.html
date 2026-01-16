@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet - Últimos Movimientos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background-color: #f8f9fa; padding-top: 50px; }
+        .container { max-width: 500px; }
+        .monto-positivo { color: #28a745; font-weight: bold; }
+        .monto-negativo { color: #dc3545; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container border p-4 bg-white shadow-sm rounded">
+        <h2 class="mb-4">Últimos Movimientos</h2>
+
+        <div class="form-group mb-4">
+            <label for="filtroTipo" class="text-muted small font-weight-bold">FILTRAR POR TIPO:</label>
+            <select id="filtroTipo" class="form-control">
+                <option value="todos">Todos los movimientos</option>
+                <option value="compra">Compras</option>
+                <option value="deposito">Depósitos</option>
+                <option value="transferencia">Transferencias recibidas</option>
+            </select>
+        </div>
+
+        <ul id="listaMovimientos" class="list-group mb-4">
+            </ul>
+
+        <a href="menu.html" class="btn btn-secondary btn-block">Volver al Menú Principal</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            const listaTransacciones = [
+                { desc: 'Supermercado Lider', monto: 50000, tipo: 'compra' },
+                { desc: 'Depósito Cajero Auto', monto: 100000, tipo: 'deposito' },
+                { desc: 'Transferencia de Juapa', monto: 75000, tipo: 'transferencia' },
+                { desc: 'Cena ', monto: 80000, tipo: 'compra' },
+                { desc: 'Pago de Sueldo', monto: 1500000, tipo: 'transferencia' },
+                { desc: 'Abono Cuenta Rut', monto: 20000, tipo: 'deposito' }
+            ];
+
+            function getTipoTransaccion(tipo) {
+                const nombres = {
+                    'compra': 'Compra',
+                    'deposito': 'Depósito',
+                    'transferencia': 'Transferencia Recibida'
+                };
+                return nombres[tipo] || tipo;
+            }
+
+            function mostrarUltimosMovimientos(filtro) {
+                const listaHtml = $('#listaMovimientos');
+                listaHtml.empty();
+
+                const filtrados = listaTransacciones.filter(t => {
+                    return filtro === 'todos' || t.tipo === filtro;
+                });
+
+                filtrados.forEach(t => {
+                    const signo = (t.tipo === 'compra') ? '-' : '+';
+                    const claseMonto = (t.tipo === 'compra') ? 'monto-negativo' : 'monto-positivo';
+                    const tipoTexto = getTipoTransaccion(t.tipo);
+
+                    listaHtml.append(`
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>${t.desc}</strong><br>
+                                <small class="text-muted">${tipoTexto}</small>
+                            </div>
+                            <span class="${claseMonto}">${signo}$${t.monto.toLocaleString('es-AR')}</span>
+                        </li>
+                    `);
+                });
+            }
+
+            $('#filtroTipo').on('change', function() {
+                const tipoSeleccionado = $(this).val();
+                mostrarUltimosMovimientos(tipoSeleccionado);
+            });
+
+            mostrarUltimosMovimientos('todos');
+        });
+    </script>
+</body>
+</html>

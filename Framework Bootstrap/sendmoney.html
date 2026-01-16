@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet - Enviar Dinero</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background-color: #f8f9fa; padding-top: 50px; }
+        .container { max-width: 500px; }
+    </style>
+</head>
+<body>
+    <div class="container border p-4 bg-white shadow-sm">
+        <h2 class="mb-4">Enviar Dinero</h2>
+        
+        <form class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nombre o Alias...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Buscar</button>
+                </div>
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-outline-success btn-block mb-4" data-toggle="modal" data-target="#modalContacto">
+            + Agregar nuevo contacto
+        </button>
+
+        <h5>Agenda</h5>
+        <ul class="list-group mb-4">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Juapa <span class="badge badge-primary badge-pill">RUT: 17.0...</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                César <span class="badge badge-primary badge-pill">RUT: 15.3...</span>
+            </li>
+        </ul>
+
+        <a href="menu.html" class="btn btn-secondary btn-block">Volver al Menú Principal</a>
+    </div>
+
+    <div class="modal fade" id="modalContacto" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuevo Contacto</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-2" placeholder="Nombre completo">
+                    <input type="text" class="form-control mb-2" placeholder="CBU o Alias">
+                    <input type="text" class="form-control" placeholder="Banco">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
