@@ -14,3 +14,4 @@ if (usuarioIngresado === usuarioValido && contraseñaIngresada === contraseñaVa
     // Si uno de los dos (o ambos) es incorrecto, entra aquí
     alert("Error: Usuario o contraseña incorrectos. Intente de nuevo.");
 }
+
