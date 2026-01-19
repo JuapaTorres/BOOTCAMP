@@ -3,11 +3,9 @@ $(document).ready(function() {
     $('#loginForm').submit(function(event) {
         event.preventDefault(); // Evita que la página se recargue
 
-        // Uso de Selectores de jQuery para obtener valores
         var email = $('#email').val();
         var password = $('#password').val();
 
-        // Limpiar alertas previas
         $('#alert-container').empty();
 
         // Verificación de credenciales (simulada)
