@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transacciones - Wallet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center">Últimos Movimientos</h2>
+            <hr>
+
+            <div class="form-group">
+                <label for="filtro-tipo"><strong>Filtrar por tipo:</strong></label>
+                <select id="filtro-tipo" class="form-control">
+                    <option value="todos">Todos los movimientos</option>
+                    <option value="deposito">Depósitos</option>
+                    <option value="transferencia">Transferencias Enviadas</option>
+                    <option value="compra">Compras</option>
+                </select>
+            </div>
+
+            <ul id="lista-movimientos" class="list-group">
+                </ul>
+
+            <div class="mt-4">
+                <a href="menu.html" class="btn btn-secondary btn-block">Volver al Menú</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>
+</html>

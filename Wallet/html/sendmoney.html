@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Dinero - Wallet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center mb-4">Enviar Dinero</h2>
+            <hr>
+
+            <div class="form-group">
+                <label for="busqueda-contacto">Buscar contacto:</label>
+                <input type="text" id="busqueda-contacto" class="form-control" placeholder="Nombre o Alias del contacto...">
+            </div>
+
+            <label>Selecciona un contacto:</label>
+            <ul id="lista-contactos" class="list-group mb-4" style="max-height: 200px; overflow-y: auto; cursor: pointer;">
+                <li class="list-group-item list-group-item-action contact-item" data-nombre="Andrés Rivera">
+                    Andrés Rivera (RUT: 15.678.123-4)
+                </li>
+                <li class="list-group-item list-group-item-action contact-item" data-nombre="Camila Soto">
+                    Camila Soto (RUT: 18.234.567-k)
+                </li>
+                <li class="list-group-item list-group-item-action contact-item" data-nombre="Javier Muñoz">
+                    Javier Muñoz (RUT: 12.987.654-3)
+                </li>
+            </ul>
+
+            <div id="seccion-envio" class="d-none border p-3 rounded bg-white mb-3">
+                <p class="mb-2">Vas a enviar dinero a: <strong id="nombre-destino"></strong></p>
+                <div class="form-group">
+                    <input type="number" id="monto-enviar" class="form-control" placeholder="Monto a enviar ($)">
+                </div>
+                <button id="btn-confirmar-envio" class="btn btn-success btn-block">Confirmar Envío</button>
+            </div>
+
+            <button id="btn-mostrar-nuevo" class="btn btn-outline-primary btn-block mb-2">Agregar nuevo contacto</button>
+            
+            <a href="menu.html" class="btn btn-link btn-block">Volver al Menú</a>
+
+            <div id="form-nuevo-contacto" class="mt-4 p-4 border rounded bg-white shadow-sm d-none">
+                <h4 class="mb-3">Nuevo Contacto</h4>
+                <div id="alert-contacto"></div> <div class="form-group">
+                    <label for="nuevo-nombre">Nombre Completo:</label>
+                    <input type="text" id="nuevo-nombre" class="form-control" placeholder="Ej: Marcela Paz">
+                </div>
+                <div class="form-group">
+                    <label for="nuevo-rut">RUT:</label>
+                    <input type="text" id="nuevo-rut" class="form-control" placeholder="12345678-9">
+                    <small class="form-text text-muted">Sin puntos y con guion.</small>
+                </div>
+                
+                <div class="d-flex">
+                    <button id="btn-guardar-contacto" class="btn btn-primary mr-2">Guardar Contacto</button>
+                    <button id="btn-cancelar-nuevo" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </div>
+
+            <div id="msg-exito-envio" class="mt-3 alert alert-success d-none text-center" role="alert">
+                <strong>¡Éxito!</strong> El dinero ha sido enviado correctamente.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>
+</html>
