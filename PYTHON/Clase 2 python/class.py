@@ -95,19 +95,19 @@
 print("Vamos a calcular el área de varias figuras: ")
 print("Empezamos por el triángulo,")
 base_triangulo = input("Cuánto mide la base?, Ingresalo: ")
-base_triangulo = int(base_triangulo)
+base_triangulo = float(base_triangulo)
 altura_triangulo = input("Ahora, cuánto mide la altura?, Ingresalo: ")
-altura_triangulo = int(altura_triangulo)
-area_triangulo = base_triangulo * altura_triangulo / 2
+altura_triangulo = float(altura_triangulo)
+area_triangulo = (base_triangulo * altura_triangulo) / 2
 print(f"El área del triangulo es: {area_triangulo:.2f}")
 print("Ahora vamos por el cuadrado,")
 lado_cuadrado = input("Cuánto mide el lado del cuadrado?, Ingresalo: ")
-lado_cuadrado = int(lado_cuadrado)
+lado_cuadrado = float(lado_cuadrado)
 area_cuadrado = lado_cuadrado ** 2
 print(f"El área del cuadrado es: {area_cuadrado:.2f}")
 print("Finalmente vamos por el círculo,")
 radio_circulo = input("Cuánto es el radio del círculo?, Ingresalo: ")
-radio_circulo = int(radio_circulo)
-area_circulo = 3.14 * radio_circulo ** 2
+radio_circulo = float(radio_circulo)
+area_circulo = 3.14 * (radio_circulo ** 2)
 print(f"El área del círculo es: {area_circulo:.2f}")
 
