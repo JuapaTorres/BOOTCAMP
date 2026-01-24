@@ -74,19 +74,40 @@
 # Casteo explicito, lo realiza el programador
 
 
-print("Vamos a calcular el promedio")
-nota1 = input("Ingrese nota 1:")
-nota1 = int(nota1)
-nota2 = input("ingrese nota 2:")
-nota2 = int(nota2)
-nota3 = input("Ingrese nota 3:")
-nota3 = int(nota3)
-promedio = nota1 + nota2 + nota3
-promedio_final = promedio / 3
-print(f"El promedio es, {promedio_final:.2f}")
+#print("Vamos a calcular el promedio")
+#nota1 = input("Ingrese nota 1:")
+#nota1 = int(nota1)
+#nota2 = input("ingrese nota 2:")
+#nota2 = int(nota2)
+#nota3 = input("Ingrese nota 3:")
+#nota3 = int(nota3)
+#promedio = nota1 + nota2 + nota3
+#promedio_final = promedio / 3
+#print(f"El promedio es, {promedio_final:.2f}")
 
 
 #Calcular el área de un cuadrado, triangulo y círculo ... TAREA SÁBADO
 # triangulo = base * altura / 2
 # cuadrado = lado**2
 # circulo = pi * r**2
+
+
+print("Vamos a calcular el área de varias figuras: ")
+print("Empezamos por el triángulo,")
+base_triangulo = input("Cuánto mide la base?, Ingresalo: ")
+base_triangulo = int(base_triangulo)
+altura_triangulo = input("Ahora, cuánto mide la altura?, Ingresalo: ")
+altura_triangulo = int(altura_triangulo)
+area_triangulo = base_triangulo * altura_triangulo / 2
+print(f"El área del triangulo es: {area_triangulo:.2f}")
+print("Ahora vamos por el cuadrado,")
+lado_cuadrado = input("Cuánto mide el lado del cuadrado?, Ingresalo: ")
+lado_cuadrado = int(lado_cuadrado)
+area_cuadrado = lado_cuadrado ** 2
+print(f"El área del cuadrado es: {area_cuadrado:.2f}")
+print("Finalmente vamos por el círculo,")
+radio_circulo = input("Cuánto es el radio del círculo?, Ingresalo: ")
+radio_circulo = int(radio_circulo)
+area_circulo = 3.14 * radio_circulo ** 2
+print(f"El área del círculo es: {area_circulo:.2f}")
+
