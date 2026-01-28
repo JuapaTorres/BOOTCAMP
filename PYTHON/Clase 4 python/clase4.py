@@ -100,37 +100,38 @@
 #print(f"La suma de los pares entre el 1 al 100 es: {suma_pares}")
 
 # Crear un programa que permita registrar y sumar "n" cantidad de ventas, también debe permitir ver el total de ventas y salir del programa.
-'''
+
 total_ventas = 0
 
 while True:
-    print("### REGISTRO DE VENTAS ###")
-    print("1. Agrgar ventas")
+    print("\n### REGISTRO DE VENTAS ###")
+    print("1. Agregar ventas")
     print("2. Mostrar total de ventas")
     print("3. Salir")
 
-opcion = input("Ingrese la opción deseada: ")
+    opcion = input("Ingrese la opción deseada: ")
+
     if opcion == "1":
-    cantidad = int(input("Cuantas ventas desea registrar?: "))
-
-    if cantidad > 0:
-        for i in range(1, cantidad + 1):
-            monto = float(input(f"Ingrese el monto de la venta {i}:"))
-
-            if monto > 0:
-                total_ventas += monto
-            else:
-                print("Monto es inválido, no se puede sumar")
+        cantidad = int(input("¿Cuántas ventas desea registrar?: "))
+        
+        if cantidad > 0:
+            for i in range(1, cantidad + 1):
+                monto = float(input(f"Ingrese el monto de la venta {i}: "))
+                
+                if monto > 0:
+                    total_ventas += monto
+                else:
+                    print("Monto es inválido, no se puede sumar")
         else:
             print("La cantidad debe ser mayor a cero")
-    elif opcion == "2":
-        print(f"Total vendido: {total_ventas}")
-    elif opcion == "3":
-        print("Gracias por usar el programa")
-        print("Saliendo...")
-        break
-    else:
-        print("\nOpcion no válida, intente nuevamente")
 
-'''
+    elif opcion == "2":
+        print(f"\nTotal vendido: ${total_ventas:.2f}")
+
+    elif opcion == "3":
+        print("Gracias por usar el programa. Saliendo...")
+        break
+
+    else:
+        print("\nOpción no válida, intente nuevamente")
 
