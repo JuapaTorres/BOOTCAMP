@@ -100,7 +100,7 @@
 #print(f"La suma de los pares entre el 1 al 100 es: {suma_pares}")
 
 # Crear un programa que permita registrar y sumar "n" cantidad de ventas, también debe permitir ver el total de ventas y salir del programa.
-
+"""
 total_ventas = 0
 
 while True:
@@ -134,4 +134,9 @@ while True:
 
     else:
         print("\nOpción no válida, intente nuevamente")
+
+
+
+"""
+
 
