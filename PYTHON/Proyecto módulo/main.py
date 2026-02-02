@@ -1,6 +1,5 @@
 from validaciones import leer_entero
 import procesos
-# Importamos todo el módulo de procesos
 
 def mostrar_menu():
     print("\n--- SISTEMA DE GESTIÓN TECNOLÓGICA ---")
