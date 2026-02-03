@@ -6,7 +6,7 @@ from validaciones import leer_entero
 import procesos
 
 def mostrar_menu():
-#Muestra las opciones disponibles en la consola.
+#Muestra las opciones disponibles en la consola para el usuario.
     print("--- MENÚ PRINCIPAL DEL SISTEMA ---")
     print("1. Registrar nuevo producto")
     print("2. Visualizar inventario")
