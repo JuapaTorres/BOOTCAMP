@@ -5,10 +5,10 @@ $(document).ready(function () {
   function guardarTransaccion(tipo, monto, desc) {
     let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
     const nuevaTransa = {
-      fecha: new Date().toLocaleDateString('es-CL'),
+      fecha: new Date().toLocaleDateString("es-CL"),
       tipo: tipo, //"deposito", "transferencia", "compra"
       monto: monto,
-      desc: desc
+      desc: desc,
     };
     movimientos.unshift(nuevaTransa); //Agrega al principio de la lista
     localStorage.setItem("movimientos", JSON.stringify(movimientos));
@@ -17,12 +17,12 @@ $(document).ready(function () {
   //Carga el saldo en las pantallas donde sea necesario
   function cargarSaldo() {
     let saldo = parseFloat(localStorage.getItem("miSaldo"));
-    //Si es la primera vez (null), inicializamos en 50000
+    //Si es la primera vez (null), inicializamos en $50.000 pesos
     if (isNaN(saldo)) {
       saldo = 50000;
       localStorage.setItem("miSaldo", saldo);
     }
-    $("#saldo-menu, #saldo-actual").text("$" + saldo.toLocaleString("es-CL"));
+    $("#saldo-menu, #saldo-actual").text("$" + saldo.toLocaleString("es-CL")); //Importante para q se visualize en pesos chilenos
   }
 
   //LOGIN (index.html)
@@ -34,7 +34,7 @@ $(document).ready(function () {
       window.location.href = "html/menu.html";
     } else {
       $("#alert-container").html(
-        '<div class="alert alert-danger">Error de acceso. Verifique sus datos.</div>'
+        '<div class="alert alert-danger">Error de acceso. Verifique sus datos.</div>', //Salta en rojo la alerta en caso de poner datos erróneos.
       );
     }
   });
@@ -48,19 +48,23 @@ $(document).ready(function () {
     if (monto > 0) {
       let nuevoSaldo = saldoActual + monto;
       localStorage.setItem("miSaldo", nuevoSaldo);
-      
-      //Registrar en historial
-      guardarTransaccion('deposito', monto, 'Depósito de efectivo');
 
-      $("#confirmacion-deposito").text("Has depositado: $" + monto.toLocaleString("es-CL"));
-      setTimeout(() => { window.location.href = "menu.html"; }, 1500);
+      //Registrar en historial
+      guardarTransaccion("deposito", monto, "Depósito de efectivo");
+
+      $("#confirmacion-deposito").text(
+        "Has depositado: $" + monto.toLocaleString("es-CL"),
+      );
+      setTimeout(() => {
+        window.location.href = "menu.html";
+      }, 1500);
     } else {
       alert("Ingrese un monto válido");
     }
   });
 
   //ENVIAR DINERO (sendmoney.html)
-  
+
   //Autocompletado
   $("#busqueda-contacto").on("keyup", function () {
     let value = $(this).val().toLowerCase();
@@ -70,12 +74,12 @@ $(document).ready(function () {
   });
 
   //Mostrar formulario nuevo contacto
-  $("#btn-mostrar-nuevo").click(function() {
+  $("#btn-mostrar-nuevo").click(function () {
     $("#form-nuevo-contacto").removeClass("d-none").hide().slideDown();
   });
 
   //Guardar nuevo contacto y que quede registraado
-  $("#btn-guardar-contacto").click(function() {
+  $("#btn-guardar-contacto").click(function () {
     let nombre = $("#nuevo-nombre").val();
     let rut = $("#nuevo-rut").val();
     if (nombre && rut) {
@@ -102,15 +106,16 @@ $(document).ready(function () {
     let destino = $("#nombre-destino").text();
 
     if (monto > 0 && monto <= saldo) {
+      //Con esto evitamos enviar "dinero" que no tenemos
       localStorage.setItem("miSaldo", saldo - monto);
-      
+
       //Registrar en historial, para que se muestren todos los movimientos
-      guardarTransaccion('transferencia', monto, 'Envío a ' + destino);
+      guardarTransaccion("transferencia", monto, "Envío a " + destino);
 
       alert("Envío exitoso");
       window.location.href = "menu.html";
     } else {
-      alert("Monto inválido o saldo insuficiente");
+      alert("Monto inválido o saldo insuficiente"); //al poner un monto mayor al que tenemos guardado envía el error de saldo insuficiente.
     }
   });
 
@@ -120,9 +125,9 @@ $(document).ready(function () {
       let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
       $("#lista-movimientos").empty();
 
-      movimientos.forEach(m => {
+      movimientos.forEach((m) => {
         if (filtro === "todos" || m.tipo === filtro) {
-          let esGasto = (m.tipo === 'transferencia' || m.tipo === 'compra');
+          let esGasto = m.tipo === "transferencia" || m.tipo === "compra";
           let colorClass = esGasto ? "text-danger" : "text-success";
           let signo = esGasto ? "-" : "+";
 
@@ -140,7 +145,9 @@ $(document).ready(function () {
     }
 
     dibujarTabla();
-    $("#filtro-tipo").change(function() { dibujarTabla($(this).val()); });
+    $("#filtro-tipo").change(function () {
+      dibujarTabla($(this).val());
+    });
   }
 
   //INICIALIZACIÓN GENERAL
@@ -149,5 +156,7 @@ $(document).ready(function () {
   //Botones para redireccionar a otras pantallas
   $("#btn-depositar").click(() => (window.location.href = "deposit.html"));
   $("#btn-enviar").click(() => (window.location.href = "sendmoney.html"));
-  $("#btn-movimientos").click(() => (window.location.href = "transactions.html"));
+  $("#btn-movimientos").click(
+    () => (window.location.href = "transactions.html"),
+  );
 });
