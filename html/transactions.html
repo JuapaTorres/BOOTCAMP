@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transacciones - Alke Wallet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-light">
+    <header class="p-3 mb-4 shadow-sm bg-white">
+        <nav class="container">
+            <span class="navbar-brand fw-bold text-primary">Alke Wallet</span>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card shadow-lg p-4">
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold m-0">Últimos Movimientos</h2>
+                <a href="menu.html" class="btn btn-outline-secondary btn-sm">Volver al Menú</a>
+            </header>
+
+            <section id="filtros" class="mb-4 p-3 bg-light rounded">
+                <label for="filtro-tipo" class="form-label fw-semibold">Filtrar por tipo:</label>
+                <select id="filtro-tipo" class="form-select">
+                    <option value="todos">Todos los movimientos</option>
+                    <option value="deposito">Depósitos (+)</option>
+                    <option value="transferencia">Transferencias Enviadas (-)</option>
+                    <option value="compra">Compras (-)</option>
+                </select>
+            </section>
+
+            <article>
+                <ul id="lista-movimientos" class="list-group list-group-flush">
+                    </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer class="text-center mt-5 mb-4 text-muted">
+        <small>Alke Wallet Fintech App - Historial de Transacciones</small>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>
+</html>
