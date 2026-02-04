@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depositar - Alke Wallet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-light">
+    <header class="p-3 mb-4 shadow-sm bg-white">
+        <nav class="container">
+            <span class="navbar-brand fw-bold text-primary">Alke Wallet</span>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card shadow-lg p-4 mx-auto" style="max-width: 500px;">
+            <header class="text-center mb-4">
+                <h2 class="fw-bold">Realizar Depósito</h2>
+                <hr>
+            </header>
+
+            <article class="alert alert-primary text-center">
+                <small class="d-block">Tu Saldo Actual:</small>
+                <strong class="fs-3" id="saldo-actual">$0</strong>
+            </article>
+
+            <div id="alert-container"></div> 
+
+            <form id="depositForm">
+                <div class="mb-4">
+                    <label for="monto" class="form-label fw-semibold">Monto a depositar:</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" id="monto" class="form-control form-control-lg" placeholder="Ej: 10000" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success w-100 py-3 fw-bold shadow-sm">Confirmar Depósito</button>
+                <footer class="mt-3 text-center">
+                    <a href="menu.html" class="btn btn-link">Volver al Menú</a>
+                </footer>
+            </form>
+
+            <div id="confirmacion-deposito" class="mt-3 text-center fw-bold text-success"></div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>
+</html>
