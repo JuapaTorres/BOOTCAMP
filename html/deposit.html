@@ -9,21 +9,26 @@
 </head>
 <body class="bg-light">
     <header class="p-3 mb-4 shadow-sm bg-white">
-        <nav class="container">
-            <span class="navbar-brand fw-bold text-primary">Alke Wallet</span>
+        <nav class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="../assets/img/icono-xone96.png" alt="Logo XONE96" class="d-none d-md-block me-2" style="height: 40px;">
+                <span class="navbar-brand fw-bold text-primary mb-0">Alke Wallet</span>
+            </div>
+            <a href="../index.html" class="btn btn-outline-danger btn-sm">Salir</a>
         </nav>
     </header>
 
     <main class="container">
-        <section class="card shadow-lg p-4 mx-auto" style="max-width: 500px;">
+        <section class="card shadow-lg p-4 mx-auto border-0" style="max-width: 500px;">
             <header class="text-center mb-4">
-                <h2 class="fw-bold">Realizar Depósito</h2>
-                <hr>
+                <h2 class="fw-bold text-dark">Realizar Depósito</h2>
+                <p class="text-muted small">Carga saldo de forma segura a tu cuenta</p>
+                <hr class="w-25 mx-auto text-primary">
             </header>
 
-            <article class="alert alert-primary text-center">
-                <small class="d-block">Tu Saldo Actual:</small>
-                <strong class="fs-3" id="saldo-actual">$0</strong>
+            <article class="alert alert-primary text-center border-0 shadow-sm mb-4">
+                <small class="d-block text-uppercase fw-semibold" style="letter-spacing: 1px;">Tu Saldo Actual:</small>
+                <strong class="fs-2" id="saldo-actual">$0</strong>
             </article>
 
             <div id="alert-container"></div> 
@@ -31,20 +36,31 @@
             <form id="depositForm">
                 <div class="mb-4">
                     <label for="monto" class="form-label fw-semibold">Monto a depositar:</label>
-                    <div class="input-group">
-                        <span class="input-group-text">$</span>
-                        <input type="number" id="monto" class="form-control form-control-lg" placeholder="Ej: 10000" required>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-white border-end-0 text-success fw-bold">$</span>
+                        <input type="number" id="monto" class="form-control border-start-0 ps-0" placeholder="0" min="1" step="any" required>
                     </div>
+                    <div class="form-text text-end">Mínimo sugerido: $1.000</div>
                 </div>
-                <button type="submit" class="btn btn-success w-100 py-3 fw-bold shadow-sm">Confirmar Depósito</button>
-                <footer class="mt-3 text-center">
-                    <a href="menu.html" class="btn btn-link">Volver al Menú</a>
+
+                <button type="submit" class="btn btn-success w-100 py-3 fw-bold shadow-sm mb-3">
+                    Confirmar Depósito
+                </button>
+                
+                <footer class="text-center">
+                    <a href="menu.html" class="btn btn-link text-decoration-none text-secondary">
+                        <i class="bi bi-chevron-left"></i> Volver al Menú principal
+                    </a>
                 </footer>
             </form>
 
-            <div id="confirmacion-deposito" class="mt-3 text-center fw-bold text-success"></div>
+            <div id="confirmacion-deposito" class="mt-3 text-center fw-bold text-success animate__animated animate__fadeIn"></div>
         </section>
     </main>
+
+    <footer class="text-center mt-5 mb-4 text-muted">
+        <small>Alke Wallet Fintech</small>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/scripts.js"></script>

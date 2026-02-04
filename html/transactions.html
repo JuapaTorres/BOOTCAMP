@@ -9,37 +9,53 @@
 </head>
 <body class="bg-light">
     <header class="p-3 mb-4 shadow-sm bg-white">
-        <nav class="container">
-            <span class="navbar-brand fw-bold text-primary">Alke Wallet</span>
+        <nav class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="../assets/img/icono-xone96.png" alt="Logo XONE96" class="d-none d-md-block me-2" style="height: 40px;">
+                <span class="navbar-brand fw-bold text-primary mb-0">Alke Wallet</span>
+            </div>
+            <a href="../index.html" class="btn btn-outline-danger btn-sm">Salir</a>
         </nav>
     </header>
 
     <main class="container">
-        <section class="card shadow-lg p-4">
-            <header class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold m-0">Últimos Movimientos</h2>
-                <a href="menu.html" class="btn btn-outline-secondary btn-sm">Volver al Menú</a>
+        <section class="card shadow-lg p-4 border-0">
+            <header class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+                <h2 class="fw-bold m-0 text-dark">Historial de Movimientos</h2>
+                <a href="menu.html" class="btn btn-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i> Volver al Menú
+                </a>
             </header>
 
-            <section id="filtros" class="mb-4 p-3 bg-light rounded">
-                <label for="filtro-tipo" class="form-label fw-semibold">Filtrar por tipo:</label>
-                <select id="filtro-tipo" class="form-select">
-                    <option value="todos">Todos los movimientos</option>
-                    <option value="deposito">Depósitos (+)</option>
-                    <option value="transferencia">Transferencias Enviadas (-)</option>
-                    <option value="compra">Compras (-)</option>
-                </select>
+            <section id="filtros" class="mb-4 p-3 bg-light rounded border">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <label for="filtro-tipo" class="form-label fw-semibold">Filtrar por tipo:</label>
+                        <select id="filtro-tipo" class="form-select border-primary">
+                            <option value="todos">Todos los movimientos</option>
+                            <option value="deposito">Depósitos (+)</option>
+                            <option value="transferencia">Transferencias Enviadas (-)</option>
+                            <option value="compra">Compras (-)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8 text-md-end mt-3 mt-md-0">
+                        <span class="text-muted small">Mostrando historial guardado en dispositivo</span>
+                    </div>
+                </div>
             </section>
 
-            <article>
+            <article class="transaction-list">
                 <ul id="lista-movimientos" class="list-group list-group-flush">
-                    </ul>
+                    <li class="text-center p-5 text-muted" id="loading-msg">
+                        Cargando movimientos...
+                    </li>
+                </ul>
             </article>
         </section>
     </main>
 
-    <footer class="text-center mt-5 mb-4 text-muted">
-        <small>Alke Wallet Fintech App - Historial de Transacciones</small>
+    <footer class="text-center mt-5 mb-4 text-muted border-top pt-3">
+        <p class="mb-0"><small>&copy; 2026 Alke Wallet Fintech App - Historial de Transacciones</small></p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
