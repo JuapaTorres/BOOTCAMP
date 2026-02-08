@@ -224,7 +224,7 @@ for temp in range(7):
     dormitorio.subir_temperatura()
 
 """
-
+"""
 class Celular:
     def __init__(self, marca, modelo, almacenamiento):
         self.marca = marca
@@ -244,3 +244,6 @@ mi_celu = Celular("Iphone", "23 Pro Max Turbo", 128)
 
 mi_celu.encender()
 mi_celu.ver_info()
+
+"""
+
