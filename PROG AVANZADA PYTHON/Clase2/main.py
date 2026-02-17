@@ -199,6 +199,5 @@ samsung_ssd = DiscoDuro(512, "SSD NVMe")
 mi_pc = Computadora("Dell XPS", intel_i7, corsair_ram, samsung_ssd)
 
 mi_pc.mostrar_info()
-
 """
 

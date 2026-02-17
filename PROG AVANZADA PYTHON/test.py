@@ -68,10 +68,3 @@ solicitar_numero()
 """
 
 # CONVERSIÓN DE UNIDADES CON VALIDACIÓN
-
-def conversor_distancia():
-    FACTOR_MILLAS = 0.621371
-    print("--- Conversor de Kilómetros a Millas ---")
-
-    while True:
-        

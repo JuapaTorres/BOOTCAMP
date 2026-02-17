@@ -140,8 +140,7 @@ print(f"Velocidad actual: {mi_auto.velocidad} km/h")
 #El estado es el valor en un momento determinado
 
 
-#Abstracción permite representar solamente las caracteristicas escenciales del objeto, 
-#ignorando detalles internos que no son importantes al momento de crear la instancia.
+#Abstracción permite representar solamente las caracteristicas escenciales del objeto, ignorando detalles internos que no son importantes al momento de crear la instancia.
 
 #Encapsulamiento: Restringir el acceso a ciertos atributos o métodos de una clase
 #Ejemplo de encapsulamiento:
