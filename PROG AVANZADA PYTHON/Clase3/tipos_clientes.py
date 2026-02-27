@@ -14,5 +14,8 @@ class ClientePremium():
     
 
 class ClienteCorporativo():
-    def __init__(self, cliente_id, ):
-        pass
+    def __init__(self, cliente_id, nombre, email, empresa):
+        self._empresa = empresa
+
+def calcular_descuento(self):
+    return 30

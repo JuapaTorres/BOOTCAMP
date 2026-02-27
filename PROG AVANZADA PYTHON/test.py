@@ -16,7 +16,7 @@ class Gato(Animal):
     def hacer_sonido(self):
         return "Miau miau"
     
-class Pajaro(Animal):
+class Pollito(Animal):
     def hacer_sonido(self):
         return "Pio pio"
     
@@ -35,7 +35,7 @@ def es_animal_valido(objeto):
 mis_mascotas = [
     Perro("Copito", 14),
     Gato("Panther", 3),
-    Pajaro("Zelda", 1)
+    Pollito("Zelda", 1)
 ]
 
 imprimir_sonidos(mis_mascotas)
