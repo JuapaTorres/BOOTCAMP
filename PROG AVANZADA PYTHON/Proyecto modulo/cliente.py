@@ -14,5 +14,5 @@ class Cliente:
         self.__nombre = nombre
 
     def calcular_descuento(self):
-        return None
+        return 0
     
