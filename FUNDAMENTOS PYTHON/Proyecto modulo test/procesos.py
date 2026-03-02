@@ -1,48 +1,46 @@
 #MÓDULO DE PROCESOS
 #Aquí se gestiona el almacenamiento y cálculo de los datos del sistema.
-
 #Estructura de datos: Lista para almacenar diccionarios de productos
 inventario = []
+categorias_unicas = set() 
 
-#Estructura de datos: Conjunto (set) para almacenar categorías sin duplicados
-categorias_unicas = set()
+def calcular_valor_recursivo(cantidad, precio): #Acá vemos recursividad para el cálculo
+    if cantidad == 0:
+        return 0
+    return precio + calcular_valor_recursivo(cantidad - 1, precio)
 
 def agregar_producto(nombre, stock, precio, categoria):
-#Recibe los datos del producto, calcula el valor total y los guarda en un diccionario dentro de la lista de inventario.
-#Creamos un diccionario para organizar la información del producto (Clave-Valor)
-#Usamos formato para el ingreso y salida de la info (.strip y .title)
-    nombre_formateado = nombre.strip().title()
-    categoria_formateada = categoria.strip().title()
+    nombre_f = nombre.strip().title()
+    cat_f = categoria.strip().title()
+
+    datos_fijos = (nombre_f, cat_f)
+
+    total = calcular_valor_recursivo(stock, precio)
 
     producto = {
-        "nombre": nombre_formateado,
+        "identidad": datos_fijos, # Tupla guardada aquí
+        "nombre": nombre_f,
         "stock": stock,
         "precio": precio,
-        "categoria": categoria_formateada,
-        "valor_total": stock * precio # Cálculo del subtotal
+        "categoria": cat_f,
+        "valor_total": total
     }
     
-    #Agregamos el producto a la lista global con la funciuón .append
     inventario.append(producto)
-    
-    #Agregamos la categoría al conjunto con .add
-    categorias_unicas.add(categoria_formateada)
-    print(f"\nProducto '{nombre_formateado}' registrado exitosamente en el sistema.")
+    categorias_unicas.add(cat_f)
+    print(f"\n✅ Producto '{nombre_f}' registrado exitosamente.")
 
-def mostrar_inventario():  #Se verifica si la lista está vacía con len
-    if len(inventario) == 0:
+def mostrar_inventario():
+    if not inventario:
         print("\nInventario vacío.")
-    else:
-        print("\n--- REPORTE DE EXISTENCIAS (CLP) ---")
-        total_general = 0
-        #Iteramos sobre la lista de productos
-        for p in inventario:
-            total_general += p["valor_total"]
-
-            print(f"Item: {p['nombre']} | Cant: {p['stock']} | Subtotal: ${p['valor_total']:,}")
-        
-        print("-" * 40)
-        #Resumen final
-        print(f"VALOR TOTAL INVENTARIO: ${total_general:,} CLP")
-        print(f"CATEGORÍAS: {categorias_unicas}")
-        print("-" * 40)
+        return
+    
+    print("\n--- REPORTE DE EXISTENCIAS ---")
+    total_general = 0
+    for p in inventario:
+        total_general += p["valor_total"]
+        n, c = p["identidad"]
+        print(f"Item: {n} ({c}) | Cant: {p['stock']} | Subtotal: ${p['valor_total']:,}")
+    
+    print(f"\nVALOR TOTAL: ${total_general:,} CLP")
+    print(f"CATEGORÍAS ÚNICAS: {categorias_unicas}")

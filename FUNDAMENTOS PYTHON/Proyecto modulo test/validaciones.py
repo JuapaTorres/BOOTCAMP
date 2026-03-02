@@ -2,13 +2,14 @@
 # Este módulo contiene funciones para verificar que las entradas del usuario sean del tipo correcto.
 
 def leer_entero(mensaje):
-#Solicita un número al usuario y valida que sea un entero positivo.
-#Usa el método .isdigit() para evitar errores si el usuario ingresa letras.
+#Solicita un número al usuario y valida que sea un entero positivo usando excepciones.
     while True:
-        valor = input(mensaje)
-        # Verificamos si la cadena contiene solo dígitos numéricos
-        if valor.isdigit():
-            return int(valor)
-        else:
-            print(f"Error: '{valor}' no es un número entero válido. Intente de nuevo.")
-
+        entrada = input(mensaje)
+        try:
+            valor = int(entrada)
+            if valor < 0:
+                print("Error: El número no puede ser negativo.")
+                continue
+            return valor
+        except ValueError:
+            print(f"Error: '{entrada}' no es un número válido. Ingrese solo dígitos.")

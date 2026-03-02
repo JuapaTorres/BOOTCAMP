@@ -7,7 +7,9 @@ import procesos
 
 def mostrar_menu():
 #Muestra las opciones disponibles en la consola para el usuario.
+    print("\n" + "="*30)
     print("--- MENÚ PRINCIPAL DEL SISTEMA ---")
+    print("="*30)
     print("1. Registrar nuevo producto")
     print("2. Visualizar inventario")
     print("3. Salir del programa")
@@ -16,7 +18,6 @@ def iniciar_programa():
 #Controla el flujo principal mediante un bucle infinito hasta que el usuario decida salir.
     while True:
         mostrar_menu()
-        
         #Validación de la opción elegida
         opcion = leer_entero("Seleccione una opción: ")
 
@@ -26,9 +27,7 @@ def iniciar_programa():
             categoria = input("Ingrese categoría: ")
             stock = leer_entero("Ingrese cantidad de stock: ")
             precio = leer_entero("Ingrese precio unitario (CLP): ")
-            
-            #Procesamiento de la información
-            procesos.agregar_producto(nombre, stock, precio, categoria)
+            procesos.agregar_producto(nombre, stock, precio, categoria) #Procesamiento de la información
             
         elif opcion == 2:
             #Visualización de datos procesados
