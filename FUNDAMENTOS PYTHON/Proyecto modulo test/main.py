@@ -2,7 +2,7 @@
 #Punto de entrada del Sistema de Gestión de Datos.
 
 #Importación de funciones desde los módulos personalizados
-from validaciones import leer_entero
+from validaciones import leer_entero, leer_texto
 import procesos
 
 def mostrar_menu():

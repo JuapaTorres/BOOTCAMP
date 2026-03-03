@@ -13,3 +13,12 @@ def leer_entero(mensaje):
             return valor
         except ValueError:
             print(f"Error: '{entrada}' no es un número válido. Ingrese solo dígitos.")
+            continue
+
+def leer_texto(mensaje):
+    while True:
+        texto = input(mensaje).strip()
+        if not texto:
+            print("Error: Este campo no puede quedar vacío.")
+            continue
+        return texto

@@ -30,6 +30,25 @@ def agregar_producto(nombre, stock, precio, categoria):
     categorias_unicas.add(cat_f)
     print(f"\n✅ Producto '{nombre_f}' registrado exitosamente.")
 
+def buscar_producto(nombre_buscado):
+    print(f"-- Resultados para: {nombre_buscado} --")
+    encontrado = False
+    for p in inventario:
+        if nombre_buscado.lower() in p["nombre"].lower():
+            print(f"Encontrado: {p['nombre']} | Stock: {p['stock']} | Cat: {p['categoria']}")
+            encontrado = True
+    if not encontrado:
+        print("No se encontraron productos con ese nomrbe.")
+
+def eliminar_producto(nombre_eliminar):
+    global inventario
+    for p in inventario:
+        if p["nombre"].lower() == nombre_eliminar.lower():
+            inventario.remove(p)
+            print(f"Producto '{nombre_eliminar}' eliminado exitosamente.")
+            return
+        print("Producto no encontrado, no se pudo eliminar.")
+
 def mostrar_inventario():
     if not inventario:
         print("\nInventario vacío.")
