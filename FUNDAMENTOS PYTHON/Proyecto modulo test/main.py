@@ -12,7 +12,9 @@ def mostrar_menu():
     print("="*30)
     print("1. Registrar nuevo producto")
     print("2. Visualizar inventario")
-    print("3. Salir del programa")
+    print("3. Buscar producto")
+    print("4. Eliminar producto")
+    print("5. Salir del programa")
 
 def iniciar_programa():
 #Controla el flujo principal mediante un bucle infinito hasta que el usuario decida salir.
@@ -34,12 +36,20 @@ def iniciar_programa():
             procesos.mostrar_inventario()
             
         elif opcion == 3:
+            nombre_b = leer_texto("Ingrese nombre a buscar: ")
+            procesos.buscar_producto(nombre_b)
+
+        elif opcion == 4:
+            nombre_e = leer_texto("Ingrese nombre a eliminar: ")
+            procesos.eliminar_producto(nombre_e)
+
+        elif opcion == 5:
             #Detiene el ciclo usando break
             print("Saliendo del sistema... ¡Gracias por utilizar nuestra gestión!")
             break
         else:
             #En caso de que se ingrese una opción no válida, mensaje para vovler a elegir.
-            print(f"La opción {opcion} no es válida. Por favor, elija entre 1 y 3.")
+            print(f"La opción {opcion} no es válida. Por favor, elija entre 1 y 5.")
 
 #Asegura que el programa solo se ejecute si este archivo es el principal.
 if __name__ == "__main__":
