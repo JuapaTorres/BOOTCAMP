@@ -1,0 +1,7 @@
+2026-03-04 16:11:28,757 [INFO] __main__: Iniciando GIC con interfaz gráfica...
+2026-03-04 16:11:29,324 [INFO] base_datos: Tabla 'clientes' inicializada correctamente.
+2026-03-04 16:11:29,325 [INFO] base_datos: Se leyeron 0 clientes de SQLite.
+2026-03-04 16:11:29,325 [INFO] gestor_clientes: Gestor iniciado con 0 clientes.
+2026-03-04 16:12:17,827 [INFO] base_datos: Cliente ID=1 guardado en SQLite.
+2026-03-04 16:12:17,828 [INFO] gestor_clientes: Cliente 'Juan Pablo Torres' (ID=1) agregado.
+2026-03-04 16:12:39,901 [INFO] archivos: CSV exportado: 1 clientes en 'C:/Users/juapa/OneDrive/Documentos/clientes.csv'.
