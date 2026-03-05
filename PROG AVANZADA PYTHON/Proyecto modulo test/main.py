@@ -23,11 +23,8 @@ def demo_consola():
     Se puede ejecutar sin GUI para pruebas.
     """
     from gestor_clientes import GestorClientes
-    from tipos_cliente import ClienteRegular, ClientePremium, ClienteCorporativo
-    from excepciones import (
-        ClienteNoEncontradoError, ClienteDuplicadoError,
-        EmailInvalidoError, NombreInvalidoError
-    )
+    from tipos_cliente import (ClienteRegular, ClientePremium, ClienteCorporativo)
+    from excepciones import (ClienteNoEncontradoError, ClienteDuplicadoError,EmailInvalidoError, NombreInvalidoError)
 
     print("\n" + "="*60)
     print("   GIC — Gestor Inteligente de Clientes (Demo Consola)")
