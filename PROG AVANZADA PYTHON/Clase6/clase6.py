@@ -275,6 +275,8 @@ try:
 except ErrorPersonalizado as e:
     print(f"Se detectó un error: {e}")
 """
+
+"""
 import tkinter as tk
 from tkinter import messagebox
 
@@ -339,3 +341,5 @@ boton = tk.Button(ventana, text="Verificar", command=verificar)
 boton.place(x=130, y=160)
 
 ventana.mainloop()
+"""
+
